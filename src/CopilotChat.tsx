@@ -120,29 +120,6 @@ export default function CopilotChat() {
             ))}
           </div>
 
-          <div className="fixed bottom-6 w-full flex justify-center">
-            <div className="max-w-2xl w-full px-4">
-              <div className="bg-white rounded-xl shadow-md p-4">
-                <div className="flex items-center gap-2">
-                  <Input
-                    placeholder="How can I help you today?"
-                    value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
-                    onKeyPress={(e) => {
-                      if (e.key === "Enter") handleSendMessage()
-                    }}
-                    className="flex-1"
-                  />
-                  <Button className="text-blue-600" onClick={handleSendMessage}>
-                    <Send className="w-4 h-4" />
-                  </Button>
-                </div>
-                <div className="text-right mt-2 text-xs text-blue-700 font-medium cursor-pointer">
-                  Previous Chats
-                </div>
-              </div>
-            </div>
-          </div>
           <div className="h-28" />
         </>
       ) : (
@@ -168,8 +145,10 @@ export default function CopilotChat() {
             </button>
           </div>
 
+          <div className="h-32" />
+
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4">
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 pb-44">
             {messages.map((message) => (
               <div
                 key={message.id}
@@ -223,39 +202,37 @@ export default function CopilotChat() {
 
             <div ref={messagesEndRef} />
           </div>
-
-          {/* Input */}
-          <div className="border-t border-gray-200 bg-white p-4">
-            <div className="max-w-4xl mx-auto">
-              <div className="flex gap-3 items-end">
-                <div className="flex-1 relative">
-                  <Input
-                    ref={inputRef}
-                    value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
-                    onKeyPress={(e) => {
-                      if (e.key === "Enter") handleSendMessage()
-                    }}
-                    placeholder="Ask Copilot anything..."
-                    className="pr-12 py-3 text-sm border-gray-300 rounded-xl resize-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    disabled={isTyping}
-                  />
-                  <Button
-                    onClick={handleSendMessage}
-                    disabled={!inputValue.trim() || isTyping}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 h-8 w-8 p-0 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300"
-                  >
-                    <Send className="w-4 h-4" />
-                  </Button>
-                </div>
-              </div>
-              <p className="text-xs text-gray-500 mt-2 text-center">
-                Copilot can make mistakes. Consider checking important information.
-              </p>
+        </div>
+      )}
+      <div className="fixed bottom-10 w-full flex justify-center">
+        <div className="max-w-2xl w-full px-4">
+          <div className="bg-white rounded-xl shadow-md p-4">
+            <div className="flex items-center gap-2">
+              <Input
+                placeholder={chatStarted ? "Ask Copilot anything..." : "How can I help you today?"}
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                onKeyPress={(e) => {
+                  if (e.key === "Enter") handleSendMessage()
+                }}
+                className="flex-1"
+                ref={inputRef}
+                disabled={isTyping}
+              />
+              <Button
+                className="text-blue-600"
+                onClick={handleSendMessage}
+                disabled={!inputValue.trim() || isTyping}
+              >
+                <Send className="w-4 h-4" />
+              </Button>
+            </div>
+            <div className="text-right mt-2 text-xs text-blue-700 font-medium cursor-pointer">
+              Previous Chats
             </div>
           </div>
         </div>
-      )}
+      </div>
     </div>
   )
 }
