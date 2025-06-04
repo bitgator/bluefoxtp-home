@@ -7,6 +7,7 @@ import { Button } from "./components/ui/button"
 import { Sparkles, User, Send } from "lucide-react"
 import { cn } from "./lib/utils"
 import logo from "../public/images/Logo-Color-3D.png"
+import avatar from "../public/images/Logo-Color-3D-Square.png"
 
 interface Message {
   id: string
@@ -127,8 +128,8 @@ export default function CopilotChat() {
           {/* Header */}
           <div className="flex items-center justify-between p-4 border-b border-gray-200">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-blue-600 rounded-lg flex items-center justify-center">
-                <Sparkles className="w-4 h-4 text-white" />
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center">
+                <img src={avatar} className="" />
               </div>
               <div>
                 <h1 className="text-lg font-semibold text-gray-900">CloudRadial Chat</h1>
@@ -157,13 +158,13 @@ export default function CopilotChat() {
                 <div
                   className={cn(
                     "w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0",
-                    message.sender === "user" ? "bg-blue-100" : "bg-gradient-to-br from-purple-500 to-blue-600",
+                    message.sender === "user" ? "bg-blue-100" : "",
                   )}
                 >
                   {message.sender === "user" ? (
                     <User className="w-4 h-4 text-blue-600" />
                   ) : (
-                    <Sparkles className="w-4 h-4 text-white" />
+                    <img src={avatar} className="" />
                   )}
                 </div>
 
