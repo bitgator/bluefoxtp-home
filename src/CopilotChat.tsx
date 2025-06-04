@@ -20,7 +20,7 @@ export default function CopilotChat() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
-      content: "Hello! I'm Copilot, your AI assistant. How can I help you today?",
+      content: "Hello! I'm Chatty McChatterson, your IT assistant. How can I help you today?",
       sender: "assistant",
       timestamp: new Date(),
     },
@@ -131,8 +131,8 @@ export default function CopilotChat() {
                 <Sparkles className="w-4 h-4 text-white" />
               </div>
               <div>
-                <h1 className="text-lg font-semibold text-gray-900">Copilot</h1>
-                <p className="text-sm text-gray-500">Your AI assistant</p>
+                <h1 className="text-lg font-semibold text-gray-900">CloudRadial Chat</h1>
+                <p className="text-sm text-gray-500">Your IT assistant</p>
               </div>
             </div>
 
@@ -209,7 +209,7 @@ export default function CopilotChat() {
           <div className="bg-white rounded-xl shadow-md p-4">
             <div className="flex items-center gap-2">
               <Input
-                placeholder={chatStarted ? "Ask Copilot anything..." : "How can I help you today?"}
+                placeholder={chatStarted ? "Ask me anything..." : "How can I help you today?"}
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyPress={(e) => {
