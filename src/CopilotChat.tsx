@@ -94,7 +94,7 @@ export default function CopilotChat() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-4 relative">
+    <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-4 relative main-container">
       <img src={logo} alt="CloudRadial Logo" className="h-16 mb-6" />
       {!chatStarted ? (
         <>
