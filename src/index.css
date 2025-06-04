@@ -6,10 +6,10 @@
   font-family: 'Open Sans', sans-serif;
 }
 
-body {
+html, body {
     font-family: 'Open Sans', sans-serif;
     background-color: #f0f0f0;
-    padding: 24px;
+    padding: 8px 8px 0px 8px;
 }
 h1 {
     color: #444444;
@@ -24,5 +24,9 @@ h2 {
 .main-container {
 border-radius: 4px 4px 0px 0px;
 background: #FFF;
-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    margin: 32px;
 }
