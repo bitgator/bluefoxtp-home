@@ -6,6 +6,7 @@ import { Input } from "./components/ui/input"
 import { Button } from "./components/ui/button"
 import { Sparkles, User, Send } from "lucide-react"
 import { cn } from "./lib/utils"
+import logo from "../public/images/Logo-Color-3D.png"
 
 interface Message {
   id: string
@@ -96,7 +97,7 @@ export default function CopilotChat() {
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-4 relative">
       {!chatStarted ? (
         <>
-          <img src="../public/images/Logo-Color-3D.png" alt="CloudRadial Logo" className="h-16 mb-6" />
+          <img src={logo} alt="CloudRadial Logo" className="h-16 mb-6" />
           <h1 className="text-2xl font-bold mb-6 text-center">How can we help you today?</h1>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-32 max-w-5xl w-full">
