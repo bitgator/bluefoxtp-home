@@ -35,9 +35,9 @@ export default function CopilotChat() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
   }
 
-  useEffect(() => {
-    if (chatStarted) scrollToBottom()
-  }, [messages, chatStarted])
+  // useEffect(() => {
+  //   if (chatStarted) scrollToBottom()
+  // }, [messages, chatStarted])
 
   const handleSendMessage = async () => {
     if (!inputValue.trim()) return
