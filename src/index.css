@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 20px;
+    padding: 20px;
+}
+h1 {
+    color: #0056b3;
+    font-weight: 600;
+    font-size: 32px;
+}
+h2 {
+    color: #666;
+    font-weight: 400;
+}
