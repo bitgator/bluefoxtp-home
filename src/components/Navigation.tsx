@@ -17,6 +17,12 @@ export default function Navigation() {
           >
             Chat Home
           </Link>
+          <Link 
+            to="/it-team" 
+            className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+          >
+            Your IT Team
+          </Link>
         </div>
       </div>
     </nav>
