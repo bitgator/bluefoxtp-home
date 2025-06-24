@@ -95,11 +95,13 @@ export default function CopilotChat() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col items-center px-4 relative main-container">
-      <img src={logo} alt="CloudRadial Logo" className="h-16 mb-6 logo" />
+    <div className="min-h-screen flex flex-col items-center px-4 relative main-container" style={{backgroundColor: '#f0f0f0'}}>
+      <div className="pt-20">
+        <img src={logo} alt="CloudRadial Logo" className="h-16 mb-4 logo" />
+      </div>
       {!chatStarted ? (
         <>
-          <h1 className="text-2xl font-bold mb-6 text-center">How can we help you today?</h1>
+          <h2 className="text-center mb-8">How can we help you today?</h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-32 max-w-5xl w-full">
             {[
@@ -113,7 +115,7 @@ export default function CopilotChat() {
                 onClick={() => handleCardClick(title)}
                 className="rounded-xl border p-4 shadow-sm bg-white hover:shadow-md transition cursor-pointer"
               >
-                <h2 className="font-semibold mb-2">{title}</h2>
+                <h3 className="font-semibold mb-2 text-base">{title}</h3>
                 <p className="text-sm text-gray-500">
                   Doner filet mignon swine hamburger corned beef porchetta tongue rump.
                 </p>
@@ -206,8 +208,8 @@ export default function CopilotChat() {
         </div>
       )}
       <div className="fixed bottom-10 w-full flex justify-center">
-        <div className="max-w-2xl w-full px-4">
-          <div className="bg-white rounded-xl shadow-md p-4">
+        <div className="max-w-4xl w-full px-4">
+          <div className="bg-white rounded-xl shadow-lg p-6">
             <div className="flex items-center gap-2">
               <Input
                 placeholder={chatStarted ? "Ask me anything..." : "How can I help you today?"}
