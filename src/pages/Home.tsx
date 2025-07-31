@@ -27,12 +27,17 @@ export default function Home() {
           Just testing things out here
         </h2>
       </div>
-      <chatstyleai-chatbox 
+      {/* <chatstyleai-chatbox 
         id="chatbox" 
         channel="7f5f43b0-dfc9-4519-a79d-1b1a55de765b" 
         version="" 
         options='{"isVisible":"true", "isOpen":"false", "autoStart":"true", "env":"qa"}'
-      />
+      /> */}
+
+      <link rel='stylesheet' href='https://cdn.chatstyle.ai/chatbox/chatstyleai.css'>
+<script src='https://cdn.chatstyle.ai/chatbox/chatstyleai.js'></script>
+<chatstyleai-chatbox id='chatbox' channel='11d230c1-e32e-4128-98c5-e730200a5746' version='' options='{"isOpen":"false", "autoStart":"true"}'></chatstyleai-chatbox>
+
     </div>
   )
 }
