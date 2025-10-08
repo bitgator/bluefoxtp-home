@@ -6,18 +6,25 @@ export default function Home() {
   useEffect(() => {
     const link = document.createElement('link')
     link.rel = 'stylesheet'
-    link.href = 'https://qa-crchat-cdn.azureedge.net/chatbox/chatstyleai.css'
-    document.head.appendChild(link)
 
     const script = document.createElement('script')
-    script.src = 'https://qa-crchat-cdn.azureedge.net/chatbox/chatstyleai.js'
+
+    if (chatWidget === 'bluefox-dev') {
+      link.href = 'https://cdn.chatstyle.ai/chatbox/cloudradial/crchat-chatwidget.css'
+      script.src = 'https://cdn.chatstyle.ai/chatbox/cloudradial/crchat-chatwidget.js'
+    } else {
+      link.href = 'https://qa-crchat-cdn.azureedge.net/chatbox/chatstyleai.css'
+      script.src = 'https://qa-crchat-cdn.azureedge.net/chatbox/chatstyleai.js'
+    }
+
+    document.head.appendChild(link)
     document.head.appendChild(script)
 
     return () => {
       document.head.removeChild(link)
       document.head.removeChild(script)
     }
-  }, [])
+  }, [chatWidget])
 
   return (
     <div className="min-h-screen flex flex-col items-center px-4" style={{backgroundColor: '#f0f0f0'}}>
@@ -94,7 +101,7 @@ export default function Home() {
       {chatWidget === 'bluefox-dev' && (
         <chatstyleai-chatbox
           id="chatbox"
-          channel="7fe258c9-f1ad-451f-90f3-8b4e4a12a706"
+          channel="1bd56fb0-55cd-42f1-8fe8-4ae32e036166"
           version=""
           options='{"isVisible":"true", "isOpen":"false", "autoStart":"true", "env":"dev"}'
         />
