@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 export default function Home() {
-  const [chatWidget, setChatWidget] = useState<'none' | 'syncro' | 'connectwise'>('none')
+  const [chatWidget, setChatWidget] = useState<'none' | 'syncro' | 'connectwise' | 'bluefox-dev'>('none')
 
   useEffect(() => {
     const link = document.createElement('link')
@@ -53,12 +53,22 @@ export default function Home() {
           <button
             onClick={() => setChatWidget('connectwise')}
             className={`px-4 py-2 rounded-md ${
-              chatWidget === 'connectwise' 
-                ? 'bg-blue-500 text-white' 
+              chatWidget === 'connectwise'
+                ? 'bg-blue-500 text-white'
                 : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
             }`}
           >
             Connectwise
+          </button>
+          <button
+            onClick={() => setChatWidget('bluefox-dev')}
+            className={`px-4 py-2 rounded-md ${
+              chatWidget === 'bluefox-dev'
+                ? 'bg-blue-500 text-white'
+                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+            }`}
+          >
+            BLUEFOX Dev
           </button>
         </div>
       </div>
@@ -73,11 +83,20 @@ export default function Home() {
       )}
 
       {chatWidget === 'connectwise' && (
-        <chatstyleai-chatbox 
-          id="chatbox" 
-          channel="11d230c1-e32e-4128-98c5-e730200a5746" 
-          version="" 
+        <chatstyleai-chatbox
+          id="chatbox"
+          channel="11d230c1-e32e-4128-98c5-e730200a5746"
+          version=""
           options='{"isOpen":"false", "autoStart":"true"}'
+        />
+      )}
+
+      {chatWidget === 'bluefox-dev' && (
+        <chatstyleai-chatbox
+          id="chatbox"
+          channel="7fe258c9-f1ad-451f-90f3-8b4e4a12a706"
+          version=""
+          options='{"isVisible":"true", "isOpen":"false", "autoStart":"true", "env":"dev"}'
         />
       )}
 
