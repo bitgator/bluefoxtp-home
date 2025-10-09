@@ -1,6 +1,8 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function Home() {
+  const [scriptLoaded, setScriptLoaded] = useState(false)
+
   useEffect(() => {
     const link = document.createElement('link')
     link.rel = 'stylesheet'
@@ -9,6 +11,7 @@ export default function Home() {
 
     const script = document.createElement('script')
     script.src = 'https://cdn.chatstyle.ai/chatbox/cloudradial/crchat-chatwidget.js'
+    script.onload = () => setScriptLoaded(true)
     document.head.appendChild(script)
 
     return () => {
@@ -28,12 +31,14 @@ export default function Home() {
         </h2>
       </div>
 
-      <chatstyleai-chatbox
-        id="chatbox"
-        channel="1bd56fb0-55cd-42f1-8fe8-4ae32e036166"
-        version=""
-        options='{"isVisible":"true", "isOpen":"false", "autoStart":"true", "env":"dev"}'
-      />
+      {scriptLoaded && (
+        <chatstyleai-chatbox
+          id="chatbox"
+          channel="1bd56fb0-55cd-42f1-8fe8-4ae32e036166"
+          version=""
+          options='{"isVisible":"true", "isOpen":"false", "autoStart":"true", "env":"dev"}'
+        />
+      )}
     </div>
   )
 }
