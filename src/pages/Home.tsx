@@ -7,16 +7,16 @@ export default function Home() {
     const link = document.createElement('link')
     link.rel = 'stylesheet'
     link.href = 'https://cdn.chatstyle.ai/chatbox/kendo/v20251112FIX/crchat-chatwidget.css'
-    document.head.appendChild(link)
+    document.body.appendChild(link)
 
     const script = document.createElement('script')
     script.src = 'https://cdn.chatstyle.ai/chatbox/kendo/v20251112FIX/crchat-chatwidget.js'
     script.onload = () => setScriptLoaded(true)
-    document.head.appendChild(script)
+    document.body.appendChild(script)
 
     return () => {
-      document.head.removeChild(link)
-      document.head.removeChild(script)
+      // document.head.removeChild(link)
+      // document.head.removeChild(script)
     }
   }, [])
 
@@ -27,7 +27,7 @@ export default function Home() {
           BLUEFOX Technology Partners
         </h1>
         <h2 className="text-center mt-4">
-          Just testing things out here
+          Welcome to my playground
         </h2>
       </div>
 
