@@ -6,11 +6,11 @@ export default function Home() {
   useEffect(() => {
     const link = document.createElement('link')
     link.rel = 'stylesheet'
-    link.href = 'https://cdn.chatstyle.ai/chatbox/cloudradial/crchat-chatwidget.css'
+    link.href = 'https://cdn.chatstyle.ai/chatbox/kendo/v20251112FIX/crchat-chatwidget.css'
     document.head.appendChild(link)
 
     const script = document.createElement('script')
-    script.src = 'https://cdn.chatstyle.ai/chatbox/cloudradial/crchat-chatwidget.js'
+    script.src = 'https://cdn.chatstyle.ai/chatbox/kendo/v20251112FIX/crchat-chatwidget.js'
     script.onload = () => setScriptLoaded(true)
     document.head.appendChild(script)
 
@@ -31,14 +31,12 @@ export default function Home() {
         </h2>
       </div>
 
-      {scriptLoaded && (
-        <chatstyleai-chatbox
-          id="chatbox"
-          channel="1bd56fb0-55cd-42f1-8fe8-4ae32e036166"
-          version=""
-          options='{"isVisible":"true", "isOpen":"false", "autoStart":"true", "env":"dev"}'
-        />
-      )}
+      <chatstyleai-chatbox
+        id="chatbox"
+        channel="1062790d-3b9f-4e15-b1cc-76883431ca7c"
+        version=""
+        options='{"isVisible":"true", "isOpen":"false", "autoStart":"true", "env":"dev"}'
+      />
     </div>
   )
 }
