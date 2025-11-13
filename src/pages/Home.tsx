@@ -1,42 +1,81 @@
-import { useEffect, useState } from 'react'
+import { Container, Title, Text, Stack, Box, SimpleGrid, Card } from '@mantine/core'
+import { Shield, Cloud, Users, HeadphonesIcon } from 'lucide-react'
 
 export default function Home() {
-  const [scriptLoaded, setScriptLoaded] = useState(false)
-
-  // useEffect(() => {
-  //   const link = document.createElement('link')
-  //   link.rel = 'stylesheet'
-  //   link.href = 'https://cdn.chatstyle.ai/chatbox/kendo/v20251112FIX/crchat-chatwidget.css'
-  //   document.body.appendChild(link)
-
-  //   const script = document.createElement('script')
-  //   script.src = 'https://cdn.chatstyle.ai/chatbox/kendo/v20251112FIX/crchat-chatwidget.js'
-  //   script.onload = () => setScriptLoaded(true)
-  //   document.body.appendChild(script)
-
-  //   return () => {
-  //     // document.head.removeChild(link)
-  //     // document.head.removeChild(script)
-  //   }
-  // }, [])
-
   return (
-    <div className="min-h-screen flex flex-col items-center px-4" style={{backgroundColor: '#f0f0f0'}}>
-      <div className="w-full max-w-5xl pt-32">
-        <h1 className="text-center">
-          BLUEFOX Technology Partners
-        </h1>
-        <h2 className="text-center mt-4">
-          Welcome to my playground
-        </h2>
-      </div>
+    <Box style={{ backgroundColor: '#f8f9fa' }} mih="100vh">
+      <Container size="lg" pt={80} pb={80}>
+        <Stack gap="xl" align="center">
+          {/* Logo and Header */}
+          <Box ta="center" w="100%">
+            <img
+              src="/images/bluefox-logo-blue.png"
+              alt="BLUEFOX Technology Partners"
+              style={{ height: '160px', marginBottom: '30px', display: 'block', marginLeft: 'auto', marginRight: 'auto' }}
+            />
+            <Text size="xl" c="dimmed" maw={700} mx="auto">
+              Your trusted IT partner for managed services, cybersecurity, and cloud solutions
+            </Text>
+          </Box>
 
-      {/* <chatstyleai-chatbox
-        id="chatbox"
-        channel="1062790d-3b9f-4e15-b1cc-76883431ca7c"
-        version=""
-        options='{"isVisible":"true", "isOpen":"false", "autoStart":"true"}'
-      /> */}
-    </div>
+          {/* Services Grid */}
+          <SimpleGrid cols={{ base: 1, sm: 2, md: 4 }} w="100%" mt="xl" spacing="lg">
+            <Card shadow="sm" padding="lg" radius="md" withBorder>
+              <Stack gap="sm" align="center">
+                <Shield size={40} color="#22335a" />
+                <Text fw={600} ta="center">Cybersecurity</Text>
+                <Text size="sm" c="dimmed" ta="center">
+                  Protect your business with advanced security solutions
+                </Text>
+              </Stack>
+            </Card>
+
+            <Card shadow="sm" padding="lg" radius="md" withBorder>
+              <Stack gap="sm" align="center">
+                <Cloud size={40} color="#22335a" />
+                <Text fw={600} ta="center">Cloud Services</Text>
+                <Text size="sm" c="dimmed" ta="center">
+                  Scalable cloud infrastructure and migration support
+                </Text>
+              </Stack>
+            </Card>
+
+            <Card shadow="sm" padding="lg" radius="md" withBorder>
+              <Stack gap="sm" align="center">
+                <Users size={40} color="#22335a" />
+                <Text fw={600} ta="center">IT Management</Text>
+                <Text size="sm" c="dimmed" ta="center">
+                  Comprehensive managed IT services for your team
+                </Text>
+              </Stack>
+            </Card>
+
+            <Card shadow="sm" padding="lg" radius="md" withBorder>
+              <Stack gap="sm" align="center">
+                <HeadphonesIcon size={40} color="#22335a" />
+                <Text fw={600} ta="center">24/7 Support</Text>
+                <Text size="sm" c="dimmed" ta="center">
+                  Round-the-clock technical support when you need it
+                </Text>
+              </Stack>
+            </Card>
+          </SimpleGrid>
+
+          {/* About Section */}
+          <Card shadow="sm" padding="xl" radius="md" withBorder w="100%" mt="xl">
+            <Stack gap="md">
+              <Title order={2} size="h3" ta="center" c="bluefox">
+                Why Choose BLUEFOX?
+              </Title>
+              <Text c="dimmed" ta="center" maw={700} mx="auto">
+                We provide enterprise-grade IT solutions tailored to small and medium-sized businesses.
+                Our team of certified professionals ensures your technology infrastructure runs smoothly,
+                securely, and efficiently, so you can focus on growing your business.
+              </Text>
+            </Stack>
+          </Card>
+        </Stack>
+      </Container>
+    </Box>
   )
 }

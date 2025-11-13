@@ -1,3 +1,5 @@
+import { Container, Title, Text, Stack, Box, Card, Avatar, Group, Anchor } from '@mantine/core'
+
 export default function ITTeam() {
   const teamMembers = [
     {
@@ -8,7 +10,7 @@ export default function ITTeam() {
     },
     {
       name: "David Falkenberg",
-      title: "Account Manager", 
+      title: "Account Manager",
       avatar: "DF",
       blurb: "David is your dedicated point of contact, managing relationships and ensuring your technology needs are met with personalized attention and care.",
       bookingLink: "https://outlook.office.com/bookwithme/user/f05a7a3e46524c5e9548b1b98cf1fae8@cloudradial.com?anonymous&ismsaljsauthenabled&ep=plink"
@@ -16,46 +18,73 @@ export default function ITTeam() {
     {
       name: "David Thompson",
       title: "Tech Support Manager",
-      avatar: "DT", 
+      avatar: "DT",
       blurb: "David leads our technical support team with 15 years of hands-on experience, providing rapid resolution for all your IT challenges and infrastructure needs."
     }
   ]
 
   return (
-    <div className="min-h-screen flex flex-col items-center px-4" style={{backgroundColor: '#f0f0f0'}}>
-      <div className="w-full max-w-3xl pt-32">
-        <h1 className="text-center">
-          Your IT Team
-        </h1>
-        <h2 className="text-center mt-4 mb-12">
-          Meet the experts dedicated to your success
-        </h2>
-        
-        <div className="space-y-6">
-          {teamMembers.map((member, index) => (
-            <div key={index} className="bg-white rounded-xl shadow-md p-6 flex items-start gap-4">
-              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold text-lg flex-shrink-0">
-                {member.avatar}
-              </div>
-              <div className="flex-1">
-                <h3 className="font-semibold text-lg text-gray-900 mb-1">{member.name}</h3>
-                <p className="text-blue-600 font-medium mb-3">{member.title}</p>
-                <p className="text-gray-600 leading-relaxed">{member.blurb}</p>
-                {member.bookingLink && (
-                  <a 
-                    href={member.bookingLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block mt-3 text-blue-600 hover:text-blue-800 font-medium underline"
+    <Box style={{ backgroundColor: '#f8f9fa' }} mih="100vh">
+      <Container size="md" pt={80} pb={80}>
+        <Stack gap="xl" align="center">
+          <Box ta="center" mb="lg" w="100%">
+            <img
+              src="/images/bluefox-logo-blue.png"
+              alt="BLUEFOX Technology Partners"
+              style={{ height: '120px', marginBottom: '20px', display: 'block', marginLeft: 'auto', marginRight: 'auto' }}
+            />
+            <Title order={1} size="h2" c="bluefox" mb="sm">
+              Your IT Team
+            </Title>
+            <Text size="lg" c="dimmed">
+              Meet the experts dedicated to your success
+            </Text>
+          </Box>
+
+          <Stack gap="md" w="100%">
+            {teamMembers.map((member, index) => (
+              <Card key={index} shadow="sm" padding="xl" radius="md" withBorder>
+                <Group align="flex-start" gap="lg">
+                  <Avatar
+                    size={64}
+                    radius="xl"
+                    color="bluefox"
+                    styles={{ placeholder: { fontSize: '1.25rem', fontWeight: 600 } }}
                   >
-                    Book a meeting with David
-                  </a>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
+                    {member.avatar}
+                  </Avatar>
+                  <Stack gap="xs" style={{ flex: 1 }}>
+                    <div>
+                      <Text fw={600} size="lg">
+                        {member.name}
+                      </Text>
+                      <Text c="bluefox" fw={500} size="sm">
+                        {member.title}
+                      </Text>
+                    </div>
+                    <Text c="dimmed" size="sm" style={{ lineHeight: 1.6 }}>
+                      {member.blurb}
+                    </Text>
+                    {member.bookingLink && (
+                      <Anchor
+                        href={member.bookingLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        c="bluefox"
+                        fw={500}
+                        size="sm"
+                        mt="xs"
+                      >
+                        Book a meeting with David
+                      </Anchor>
+                    )}
+                  </Stack>
+                </Group>
+              </Card>
+            ))}
+          </Stack>
+        </Stack>
+      </Container>
+    </Box>
   )
 }

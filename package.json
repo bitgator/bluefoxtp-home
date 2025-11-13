@@ -9,9 +9,13 @@
     "tailwind:init": "tailwindcss init -p"
   },
   "dependencies": {
+    "@mantine/core": "^8.3.7",
+    "@mantine/hooks": "^8.3.7",
     "aws-amplify": "^6.15.0",
     "clsx": "^2.1.0",
     "lucide-react": "^0.289.0",
+    "postcss-preset-mantine": "^1.18.0",
+    "postcss-simple-vars": "^7.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^7.6.2"

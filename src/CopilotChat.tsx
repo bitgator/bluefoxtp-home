@@ -1,13 +1,14 @@
 "use client"
 
 import type React from "react"
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef } from "react"
 import { Input } from "./components/ui/input"
 import { Button } from "./components/ui/button"
+import { Card, Text } from "@mantine/core"
 import { Sparkles, User, Send } from "lucide-react"
 import { cn } from "./lib/utils"
-import logo from "../public/images/Logo-Color-3D.png"
-import avatar from "../public/images/Logo-Color-3D-Square.png"
+import logo from "../public/images/bluefox-logo-blue.png"
+import avatar from "../public/images/bluefox-logo-blue-square.png"
 
 interface Message {
   id: string
@@ -97,7 +98,11 @@ export default function CopilotChat() {
   return (
     <div className="min-h-screen flex flex-col items-center px-4 relative main-container" style={{backgroundColor: '#f0f0f0'}}>
       <div className="pt-20">
-        <img src={logo} alt="CloudRadial Logo" className="h-16 mb-4 logo" />
+        <img
+          src={logo}
+          alt="BLUEFOX Technology Partners"
+          style={{ height: '120px', marginBottom: '16px', display: 'block', marginLeft: 'auto', marginRight: 'auto' }}
+        />
       </div>
       {!chatStarted ? (
         <>
@@ -110,16 +115,22 @@ export default function CopilotChat() {
               "Printing or Scanning Problems",
               "Software",
             ].map((title) => (
-              <div
+              <Card
                 key={title}
                 onClick={() => handleCardClick(title)}
-                className="rounded-xl border p-4 shadow-sm bg-white hover:shadow-md transition cursor-pointer"
+                shadow="sm"
+                padding="lg"
+                radius="md"
+                withBorder
+                style={{ cursor: 'pointer', transition: 'box-shadow 0.2s' }}
+                onMouseEnter={(e) => (e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)')}
+                onMouseLeave={(e) => (e.currentTarget.style.boxShadow = '')}
               >
-                <h3 className="font-semibold mb-2 text-base">{title}</h3>
-                <p className="text-sm text-gray-500">
+                <Text fw={600} size="sm" mb="xs">{title}</Text>
+                <Text size="xs" c="dimmed">
                   Doner filet mignon swine hamburger corned beef porchetta tongue rump.
-                </p>
-              </div>
+                </Text>
+              </Card>
             ))}
           </div>
 
