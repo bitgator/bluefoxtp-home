@@ -35,7 +35,7 @@ export default function Home() {
         id="chatbox"
         channel="1062790d-3b9f-4e15-b1cc-76883431ca7c"
         version=""
-        options='{"isVisible":"true", "isOpen":"false", "autoStart":"true", "env":"dev"}'
+        options='{"isVisible":"true", "isOpen":"false", "autoStart":"true"}'
       />
     </div>
   )
